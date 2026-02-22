@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     password: { type: String, required: true },
 }, { timestamps: true });
 
-// Modern Mongoose - no 'next' needed
+
 UserSchema.pre('save', async function () {
     if (!this.isModified('password')) return;
     const salt = await bcrypt.genSalt(10);
